@@ -13,7 +13,7 @@
             <td><?php echo $user->is_admin() ? 'Admin' : 'User' ?></td>
             <td>
                 <?php if (! $user->is_admin()): ?>
-                <a href="<?php echo site_url("admin/checkins/{$user->id}"); ?>">Checkins</a> |
+                <a href="<?php echo site_url("admin/users/report/{$user->id}"); ?>">Report</a> |
                 <a href="<?php echo site_url("admin/users/delete/{$user->id}"); ?>">Delete</a>
                 <?php endif; ?>
             </td>

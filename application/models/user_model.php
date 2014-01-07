@@ -33,6 +33,13 @@ class User_model extends MY_Model {
         return parent::create($props);
     }
     
+    public function change_password($user, $password)
+    {
+        $this->update($user->id, array(
+           'hashed_password' => $this->encrypt($password), 
+        ));
+    }
+    
     
 }
 

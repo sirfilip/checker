@@ -44,4 +44,26 @@ class Users extends MY_Controller
         $this->user_model->delete($id);
         redirect('admin/users');
     }
+    
+    public function action_report($id, $offset=0)
+    {
+        $this->load->model('checkin_model');
+        
+        $this->load->library('pagination');
+        $this->pagination->initialize(array(
+            'base_url' => site_url("admin/users/report/{$id}"),
+            'total_rows' => $this->checkin_model->checkout_history_for($id)->count(),
+            'per_page' => 10,
+            'uri_segment' => 5,
+        ));
+        $checkout_history = $this->checkin_model
+                                 ->checkout_history_for($id)
+                                 ->paginate($offset)
+                                 ->all();
+        $this->template->render('admin/users/report', array(
+            'user' => $this->user_model->find_by_id($id),
+            'checkout_history' => $checkout_history,
+            'pagination' => $this->pagination->create_links(),
+        ));
+    }
 }

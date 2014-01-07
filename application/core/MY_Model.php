@@ -190,7 +190,7 @@ class MY_Model extends CI_Model {
 	/**
 	* Performs pagination.
 	*/
-	function paginate($offset, $limit)
+	function paginate($offset, $limit=10)
 	{
 		$this->db->offset($offset)->limit($limit);
 		return $this;
