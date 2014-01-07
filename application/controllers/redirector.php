@@ -8,6 +8,7 @@ class Redirector extends MY_Controller {
     {
         $this->require_authentication();
         $this->session->keep_flashdata('success');
+        $this->session->keep_flashdata('danger');
         if ($this->auth->current_user()->is_admin())
         {
             redirect('admin/users');

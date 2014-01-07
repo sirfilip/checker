@@ -8,6 +8,7 @@ class Users extends MY_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->require_admin();
         $this->load->model('user_model');
     }
 

@@ -26,4 +26,12 @@ class MY_Controller extends CI_Controller {
        redirect('signin'); 
     }
     
+    protected function require_admin()
+    {
+        $this->require_authentication();
+        if ($this->auth->current_user()->is_admin()) return;
+        $this->session->set_flashdata('danger', 'Admin area only');
+        redirect('/');
+    }
+    
 }
