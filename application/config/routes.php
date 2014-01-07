@@ -38,8 +38,10 @@
 |
 */
 
-$route['default_controller'] = "welcome";
+$route['default_controller'] = "redirector";
 $route['404_override'] = '';
+$route['signin'] = 'sessions/create';
+$route['signout'] = 'sessions/destroy';
 
 
 /* End of file routes.php */

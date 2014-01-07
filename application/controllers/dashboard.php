@@ -10,7 +10,7 @@ class Dashboard extends MY_Controller {
     }
 
 
-    public function index_action()
+    public function action_index()
     {
     }
     
