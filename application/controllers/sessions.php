@@ -15,7 +15,7 @@ class Sessions extends MY_Controller {
         
         if ($this->request->is_post())
         {
-            if ($this->form_validation->run() and $this->auth->authenticate($this->input->post('username'), $this->input->post('password'), $this->input->post('remember_me')))
+            if ($this->form_validation->run() and $this->auth->authenticate($this->input->post('username'), $this->input->post('password')))
             {
                 $this->session->set_flashdata('success', 'Welcome back '.$this->auth->current_user()->username);
                 redirect('/');
