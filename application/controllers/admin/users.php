@@ -34,6 +34,7 @@ class Users extends MY_Controller
                 'email' => $this->input->post('email', TRUE),
                 'password' => $this->input->post('password'),
             ));
+            $this->session->set_flashdata('success', 'User created successfully');
             redirect('admin/users');
         }
         
@@ -43,6 +44,7 @@ class Users extends MY_Controller
     public function action_delete($id)
     {
         $this->user_model->delete($id);
+        $this->session->set_flashdata('success', 'User deleted successfully');
         redirect('admin/users');
     }
     

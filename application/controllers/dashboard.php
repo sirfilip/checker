@@ -70,6 +70,7 @@ class Dashboard extends MY_Controller {
         {
             $this->load->model('user_model');
             $this->user_model->change_password($this->auth->current_user(), $this->input->post('password'));
+            $this->session->set_flashdata('success', 'Password changed successfully');
             redirect('dashboard');
         }
         
